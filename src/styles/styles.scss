@@ -2,6 +2,7 @@
 @import './variables.scss';
 
 @import '../components/Search/Search.scss';
+@import '../components/Table/Table.scss';
 
 
 html,
@@ -9,7 +10,7 @@ body {
   padding: 0;
   margin: 0;
   color: $color-primary;
-  background-color: $color-background;
+  background-color: $color-white;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -22,6 +23,9 @@ body {
   margin: 0 auto;
   padding: 23px 77px 12px;
   box-shadow: 0px 4px 27px rgba(230, 231, 234, 0.78);
+  display: grid;
+  grid-template-rows: min-content;
+  row-gap: 15px;
 }
 
 a {
