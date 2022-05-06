@@ -1,0 +1,8 @@
+.row {
+
+    &__cell {
+        border: 1px solid $color-line;
+        min-height: 56px;
+        padding: 10px;
+    }
+}

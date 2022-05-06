@@ -11,20 +11,14 @@
         font-size: 14px;
         line-height: 19px;
         color: $color-white;
-
-        & th:nth-child(1) {
-            width: 10%;
-        }
-        
-        & th:nth-child(2) {
-            width: 50%;
-        }
     }
 
-    &__cell {
-        border: 1px solid $color-line;
-        min-height: 56px;
-        padding: 10px;
+    & th:nth-child(1) {
+        width: 10%;
+    }
+    
+    & th:nth-child(2) {
+        width: 50%;
     }
 }
 

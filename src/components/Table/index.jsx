@@ -1,4 +1,4 @@
-
+import { Row } from './Row'
 
 export const Table = ({ posts, pageNumber, postsPerPage }) => {
   const start = (pageNumber - 1) * postsPerPage;
@@ -12,19 +12,12 @@ export const Table = ({ posts, pageNumber, postsPerPage }) => {
       const item = items[i];
       if (item) {
         content.push(
-          <tr key={item.id}>
-            <td className="table__cell">{item.id}</td>
-            <td className="table__cell">{item.title}</td>
-            <td className="table__cell">{item.body}</td>
-          </tr>
+          <Row post={item} key={item.id}/>
+          
         );
       } else {
         content.push(
-          <tr key={i + 1}>
-            <td className="table__cell"></td>
-            <td className="table__cell"></td>
-            <td className="table__cell"></td>
-          </tr>
+          <Row post={null} key={i+1}/>
         );
       }
     }
