@@ -16,6 +16,9 @@ const registrySlice = createSlice({
     decrementPageNumber: (state) => {
       state.currentPage = state.currentPage - 1;
     },
+    setCurrentPage: (state, action) => {
+      state.currentPage = action.payload
+    },
     setPosts: (state, action) => {
       state.posts = action.payload;
     },

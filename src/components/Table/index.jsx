@@ -1,24 +1,15 @@
-import { Row } from './Row'
+import { Row } from './Row';
 
-export const Table = ({ posts, pageNumber, postsPerPage }) => {
-  const start = (pageNumber - 1) * postsPerPage;
-  const end = start + postsPerPage;
-  const postsOnDisplay = posts.slice(start, end);
-
+export const Table = ({ posts, postsPerPage }) => {
 
   const getCellsForTable = (items) => {
     let content = [];
     for (let i = 0; i < postsPerPage; i++) {
       const item = items[i];
       if (item) {
-        content.push(
-          <Row post={item} key={item.id}/>
-          
-        );
+        content.push(<Row post={item} key={item.id} />);
       } else {
-        content.push(
-          <Row post={null} key={i+1}/>
-        );
+        content.push(<Row post={null} key={i + 1} />);
       }
     }
     return content;
@@ -33,7 +24,7 @@ export const Table = ({ posts, pageNumber, postsPerPage }) => {
           <th className="table__head">Описание</th>
         </tr>
       </thead>
-      <tbody>{getCellsForTable(postsOnDisplay)}</tbody>
+      <tbody>{getCellsForTable(posts)}</tbody>
     </table>
   );
 };

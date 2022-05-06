@@ -1,0 +1,42 @@
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 33px;
+    padding-left: 41px;
+    padding-right: 25px;
+
+    &__button {
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: transparent;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    &__decrement {
+        &_disabled {
+            color: $color-secondary;
+            cursor: auto;
+        }
+    }
+
+    &__increment {
+        &_disabled {
+            color: $color-secondary;
+            cursor: auto;
+        }
+    }
+
+    &__page {
+        font-style: italic;
+        font-size: 18px;
+        margin-right: 5px;
+        cursor: pointer;
+
+        &_current {
+            color: #7EBC3C;
+        }
+    }
+}
