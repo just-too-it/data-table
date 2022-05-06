@@ -1,17 +1,26 @@
 // eslint-disable-next-line import/no-unresolved
+import { useEffect, useState } from 'react';
 import { Search } from './components/Search';
 // eslint-disable-next-line import/no-unresolved
 import { Table } from './components/Table';
+import { getPosts } from './core/services/posts.service';
 
 export const App = () => {
-  const posts = [
-    { id: 1, title: 'title1', body: 'body1' },
-    { id: 2, title: 'title2', body: 'body2' },
-  ];
+  const [posts, setPosts] = useState(null);
+
+  async function fetchPosts() {
+    const posts = await getPosts();
+    setPosts(posts);
+  }
+
+  useEffect(() => {
+    void fetchPosts();
+  }, []);
+
   return (
     <div className="container">
       <Search />
-      <Table posts={posts} pageNumber={1} postsPerPage={10} />
+      {posts ? <Table posts={posts} pageNumber={1} postsPerPage={10} /> : null}
     </div>
   );
 };

@@ -1,13 +1,16 @@
+
+
 export const Table = ({ posts, pageNumber, postsPerPage }) => {
   const start = (pageNumber - 1) * postsPerPage;
   const end = start + postsPerPage;
   const postsOnDisplay = posts.slice(start, end);
 
+
   const getCellsForTable = (items) => {
     let content = [];
     for (let i = 0; i < postsPerPage; i++) {
       const item = items[i];
-      if (item !== undefined) {
+      if (item) {
         content.push(
           <tr key={item.id}>
             <td className="table__cell">{item.id}</td>
