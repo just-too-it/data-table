@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Pagination } from './components/Pagination';
 
+import { Pagination } from './components/Pagination';
 import { Search } from './components/Search';
 import { Table } from './components/Table';
 import { getPosts } from './core/services/posts.service';
@@ -12,9 +12,10 @@ export const App = () => {
   const [pagesCount, setPagesCount] = useState(0);
   const postsPerPage = useSelector((state) => state.registry.postsPerPage);
   const currentPage = useSelector((state) => state.registry.currentPage);
+  const searchQuery = useSelector((state) => state.registry.searchQuery);
 
   async function fetchPosts() {
-    const posts = await getPosts(postsPerPage, currentPage);
+    const posts = await getPosts(postsPerPage, currentPage, searchQuery);
     setPosts(posts.data);
     const totalCount = posts.headers['x-total-count'];
     setPagesCount(getNumberPages(totalCount, postsPerPage));
@@ -22,7 +23,7 @@ export const App = () => {
 
   useEffect(() => {
     void fetchPosts();
-  }, [currentPage]);
+  }, [currentPage, searchQuery]);
 
   return (
     <div className="container">

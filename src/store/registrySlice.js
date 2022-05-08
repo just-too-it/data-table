@@ -4,6 +4,7 @@ const initialState = {
   currentPage: 1,
   postsPerPage: 10,
   posts: [],
+  searchQuery: '',
 };
 
 const registrySlice = createSlice({
@@ -17,10 +18,13 @@ const registrySlice = createSlice({
       state.currentPage = state.currentPage - 1;
     },
     setCurrentPage: (state, action) => {
-      state.currentPage = action.payload
+      state.currentPage = action.payload;
     },
     setPosts: (state, action) => {
       state.posts = action.payload;
+    },
+    setSearchQuery: (state, action) => {
+      state.searchQuery = action.payload;
     },
   },
 });

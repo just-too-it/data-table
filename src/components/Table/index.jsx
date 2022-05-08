@@ -1,7 +1,6 @@
 import { Row } from './Row';
 
 export const Table = ({ posts, postsPerPage }) => {
-
   const getCellsForTable = (items) => {
     let content = [];
     for (let i = 0; i < postsPerPage; i++) {
