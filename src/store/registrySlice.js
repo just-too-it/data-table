@@ -5,6 +5,8 @@ const initialState = {
   postsPerPage: 10,
   posts: [],
   searchQuery: '',
+  sortBy: 'id',
+  sortOrder: 'asc',
 };
 
 const registrySlice = createSlice({
@@ -25,6 +27,12 @@ const registrySlice = createSlice({
     },
     setSearchQuery: (state, action) => {
       state.searchQuery = action.payload;
+    },
+    setSortBy: (state, action) => {
+      state.sortBy = action.payload;
+    },
+    setSortOrder: (state) => {
+      state.sortOrder = state.sortOrder === 'asc' ? 'desc' : 'asc';
     },
   },
 });

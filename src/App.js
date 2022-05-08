@@ -13,9 +13,11 @@ export const App = () => {
   const postsPerPage = useSelector((state) => state.registry.postsPerPage);
   const currentPage = useSelector((state) => state.registry.currentPage);
   const searchQuery = useSelector((state) => state.registry.searchQuery);
+  const sortBy = useSelector((state) => state.registry.sortBy);
+  const sortOrder = useSelector((state) => state.registry.sortOrder);
 
   async function fetchPosts() {
-    const posts = await getPosts(postsPerPage, currentPage, searchQuery);
+    const posts = await getPosts(postsPerPage, currentPage, searchQuery, sortBy, sortOrder);
     setPosts(posts.data);
     const totalCount = posts.headers['x-total-count'];
     setPagesCount(getNumberPages(totalCount, postsPerPage));
@@ -23,7 +25,7 @@ export const App = () => {
 
   useEffect(() => {
     void fetchPosts();
-  }, [currentPage, searchQuery]);
+  }, [currentPage, searchQuery, sortBy, sortOrder]);
 
   return (
     <div className="container">

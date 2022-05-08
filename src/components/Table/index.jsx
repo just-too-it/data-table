@@ -1,3 +1,4 @@
+import { Head } from './Head';
 import { Row } from './Row';
 
 export const Table = ({ posts, postsPerPage }) => {
@@ -18,9 +19,9 @@ export const Table = ({ posts, postsPerPage }) => {
     <table className="table">
       <thead>
         <tr>
-          <th className="table__head">ID</th>
-          <th className="table__head">Заголовок</th>
-          <th className="table__head">Описание</th>
+          <Head name="ID" sort="id" />
+          <Head name="Заголовок" sort="title" />
+          <Head name="Описание" sort="body" />
         </tr>
       </thead>
       <tbody>{getCellsForTable(posts)}</tbody>
