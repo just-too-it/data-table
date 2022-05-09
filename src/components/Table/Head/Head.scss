@@ -1,0 +1,28 @@
+.table__head {
+    background: $color-primary;
+    height: 54px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: $color-white;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+        position: absolute;
+        content: '';
+        width: 11.66px;
+        height: 7px;
+        background-image: url('../../../assets/icons/sort.svg');
+        background-repeat: no-repeat;
+        top: calc(50% - 3.5px);
+        left: 50%;
+    }
+
+    &_sorted {
+        &::after {
+            transform: rotate(180deg);
+        }
+    }
+}

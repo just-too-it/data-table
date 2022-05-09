@@ -10,11 +10,8 @@ import { getNumberPages } from './core/utils/pages';
 export const App = () => {
   const [posts, setPosts] = useState(null);
   const [pagesCount, setPagesCount] = useState(0);
-  const postsPerPage = useSelector((state) => state.registry.postsPerPage);
-  const currentPage = useSelector((state) => state.registry.currentPage);
-  const searchQuery = useSelector((state) => state.registry.searchQuery);
-  const sortBy = useSelector((state) => state.registry.sortBy);
-  const sortOrder = useSelector((state) => state.registry.sortOrder);
+  const registry = useSelector((state) => state.registry);
+  const { postsPerPage, currentPage, searchQuery, sortBy, sortOrder } = registry;
 
   async function fetchPosts() {
     const posts = await getPosts(postsPerPage, currentPage, searchQuery, sortBy, sortOrder);
@@ -30,7 +27,7 @@ export const App = () => {
   return (
     <div className="container">
       <Search />
-      {posts ? <Table posts={posts} pageNumber={currentPage} postsPerPage={postsPerPage} /> : null}
+      {posts ? <Table posts={posts} postsPerPage={postsPerPage} /> : null}
       <Pagination currentPage={currentPage} pagesCount={pagesCount} />
     </div>
   );

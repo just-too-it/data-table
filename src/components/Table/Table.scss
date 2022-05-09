@@ -4,22 +4,19 @@
     border-spacing: 0px;
     border-collapse: collapse;
 
-    &__head {
-        background: $color-primary;
-        height: 54px;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 19px;
-        color: $color-white;
-        cursor: pointer;
-    }
-
     & th:nth-child(1) {
         width: 10%;
+        padding-left: 23px;
     }
-    
+
     & th:nth-child(2) {
         width: 50%;
+        padding-left: 125px;
+    }
+
+    & th:nth-child(3) {
+        width: 40%;
+        padding-left: 121px;
     }
 }
 
