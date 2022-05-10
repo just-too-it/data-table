@@ -36,10 +36,8 @@ export const Main = () => {
   }, [sortBy, sortOrderById, sortOrderByTitle, sortOrderByBody]);
 
   useEffect(() => {
-    const numberPage = getNumberPageFromUrl(location.search);
-    numberPage > 0 && numberPage < pagesCount
-      ? dispatch(registryActions.setCurrentPage(numberPage))
-      : dispatch(registryActions.setCurrentPage(1));
+    const numberPageFromUrl = getNumberPageFromUrl(location.search);
+    dispatch(registryActions.setCurrentPage(numberPageFromUrl));
   }, []);
 
   async function fetchPosts() {

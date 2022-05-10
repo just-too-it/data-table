@@ -16,9 +16,8 @@ export const reverseSorting = (sort) => {
 
 export const getNumberPageFromUrl = (search) => {
   if (search) {
-    return Number(search.slice(6))
+    return Number(search.slice(6));
   } else {
-    return 1
+    return 1;
   }
-  
-}
+};
