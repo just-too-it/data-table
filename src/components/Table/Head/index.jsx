@@ -12,7 +12,19 @@ export const Head = ({ name, sort }) => {
       className={headClassName}
       onClick={() => {
         dispatch(registryActions.setSortBy(`${sort}`));
-        dispatch(registryActions.setSortOrder());
+        switch (sort) {
+          case 'id':
+            dispatch(registryActions.setSortOrderById());
+            break;
+          case 'title':
+            dispatch(registryActions.setSortOrderByTitle());
+            break;
+          case 'body':
+            dispatch(registryActions.setSortOrderByBody());
+            break;
+          default:
+            break;
+        }
         setHeadClassName(headClassName === 'table__head' ? 'table__head table__head_sorted' : 'table__head');
       }}
     >

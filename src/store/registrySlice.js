@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { reverseSorting } from '../core/utils/pages';
+
 const initialState = {
   currentPage: 1,
   postsPerPage: 10,
@@ -7,6 +9,9 @@ const initialState = {
   searchQuery: '',
   sortBy: 'id',
   sortOrder: 'asc',
+  sortOrderById: 'asc',
+  sortOrderByTitle: 'asc',
+  sortOrderByBody: 'asc',
 };
 
 const registrySlice = createSlice({
@@ -31,8 +36,14 @@ const registrySlice = createSlice({
     setSortBy: (state, action) => {
       state.sortBy = action.payload;
     },
-    setSortOrder: (state) => {
-      state.sortOrder = state.sortOrder === 'asc' ? 'desc' : 'asc';
+    setSortOrderById: (state) => {
+      state.sortOrderById = reverseSorting(state.sortOrderById);
+    },
+    setSortOrderByTitle: (state) => {
+      state.sortOrderByTitle = reverseSorting(state.sortOrderByTitle);
+    },
+    setSortOrderByBody: (state) => {
+      state.sortOrderByBody = reverseSorting(state.sortOrderByBody);
     },
   },
 });

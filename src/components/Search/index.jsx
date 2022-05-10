@@ -13,6 +13,7 @@ export const Search = () => {
       placeholder="Поиск"
       onChange={(event) => {
         dispatch(registryActions.setSearchQuery(event.target.value));
+        dispatch(registryActions.setCurrentPage(1));
       }}
       value={searchQuery}
     />

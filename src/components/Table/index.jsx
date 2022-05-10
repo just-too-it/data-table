@@ -2,7 +2,7 @@ import { Head } from './Head';
 import { Row } from './Row';
 
 export const Table = ({ posts, postsPerPage }) => {
-  const getCellsForTable = (items) => {
+  const getRowsForTable = (items) => {
     let content = [];
     for (let i = 0; i < postsPerPage; i++) {
       const item = items[i];
@@ -24,7 +24,7 @@ export const Table = ({ posts, postsPerPage }) => {
           <Head name="Описание" sort="body" />
         </tr>
       </thead>
-      <tbody>{getCellsForTable(posts)}</tbody>
+      <tbody>{getRowsForTable(posts)}</tbody>
     </table>
   );
 };

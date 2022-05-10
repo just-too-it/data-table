@@ -9,3 +9,7 @@ export const getPagesArray = (totalItems) => {
   }
   return pagesArray;
 };
+
+export const reverseSorting = (sort) => {
+  return sort === 'asc' ? 'desc' : 'asc';
+};
