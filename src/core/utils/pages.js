@@ -13,11 +13,3 @@ export const getPagesArray = (totalItems) => {
 export const reverseSorting = (sort) => {
   return sort === 'asc' ? 'desc' : 'asc';
 };
-
-export const getNumberPageFromUrl = (search) => {
-  if (search) {
-    return Number(search.slice(6));
-  } else {
-    return 1;
-  }
-};

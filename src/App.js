@@ -1,12 +1,12 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { Pagination } from './components/Pagination';
 import { Search } from './components/Search';
 import { Table } from './components/Table';
 import { getPosts } from './core/services/posts.service';
-import { getNumberPages, getNumberPageFromUrl } from './core/utils/pages';
+import { getNumberPages } from './core/utils/pages';
 import { registryActions } from './store/registrySlice';
 
 export const App = () => {
@@ -16,8 +16,8 @@ export const App = () => {
   const { postsPerPage, currentPage, searchQuery, sortBy, sortOrderById, sortOrderByTitle, sortOrderByBody } = registry;
   let [sortOrder, setSortOrder] = useState(sortOrderById);
   const navigate = useNavigate();
-  const location = useLocation();
   const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
 
   useMemo(() => {
     switch (sortBy) {
@@ -36,8 +36,7 @@ export const App = () => {
   }, [sortBy, sortOrderById, sortOrderByTitle, sortOrderByBody]);
 
   useEffect(() => {
-    const numberPageFromUrl = getNumberPageFromUrl(location.search);
-    dispatch(registryActions.setCurrentPage(numberPageFromUrl));
+    dispatch(registryActions.setCurrentPage(Number(searchParams.get('page'))));
   }, []);
 
   async function fetchPosts() {
