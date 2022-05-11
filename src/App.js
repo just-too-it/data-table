@@ -54,7 +54,7 @@ export const App = () => {
   }, [currentPage, searchQuery, sortBy, sortOrder]);
 
   useEffect(() => {
-    navigate(`?page=${currentPage}`);
+    currentPage ? navigate(`?page=${currentPage}`) : null;
   }, [currentPage]);
 
   return (

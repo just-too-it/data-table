@@ -8,7 +8,6 @@ const initialState = {
   posts: [],
   searchQuery: '',
   sortBy: 'id',
-  sortOrder: 'asc',
   sortOrderById: 'asc',
   sortOrderByTitle: 'asc',
   sortOrderByBody: 'asc',
