@@ -36,7 +36,10 @@ export const App = () => {
   }, [sortBy, sortOrderById, sortOrderByTitle, sortOrderByBody]);
 
   useEffect(() => {
-    dispatch(registryActions.setCurrentPage(Number(searchParams.get('page'))));
+    const numberPageFromUrl = Number(searchParams.get('page'));
+    numberPageFromUrl
+      ? dispatch(registryActions.setCurrentPage(numberPageFromUrl))
+      : dispatch(registryActions.setCurrentPage(1));
   }, []);
 
   async function fetchPosts() {
